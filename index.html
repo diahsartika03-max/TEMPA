@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEMPA | Pemantauan Demam Anak</title>
+  <meta name="description" content="Pantau demam anak dengan TEMPA Temperature Indicator Patch. Jawab beberapa pertanyaan, dapatkan langkah penanganan dan kontak dokter.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#beranda" aria-label="TEMPA, kembali ke atas">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <g transform="rotate(-20 32 32)">
+            <rect x="3" y="17" width="58" height="30" rx="15" fill="#DCE8FB" stroke="#0A3EA6" stroke-width="3"/>
+            <g fill="#0A3EA6">
+              <circle cx="13" cy="28" r="1.7"/><circle cx="18.5" cy="25" r="1.7"/><circle cx="19" cy="32" r="1.7"/>
+              <circle cx="24.5" cy="29" r="1.7"/><circle cx="15" cy="37" r="1.7"/>
+              <circle cx="45" cy="26" r="1.7"/><circle cx="50.5" cy="30" r="1.7"/><circle cx="45.5" cy="34" r="1.7"/>
+              <circle cx="51" cy="38" r="1.7"/>
+            </g>
+            <circle cx="32" cy="32" r="12" fill="#fff" stroke="#0A3EA6" stroke-width="3"/>
+            <rect x="29" y="21" width="6" height="16" rx="3" fill="#fff" stroke="#0A3EA6" stroke-width="2.4"/>
+            <rect x="30.8" y="27" width="2.4" height="9" rx="1.2" fill="#E0507E"/>
+            <circle cx="32" cy="38.5" r="3.6" fill="#C2338E"/>
+          </g>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">TEMPA</span>
+          <span class="brand-sub">Temperature Indicator Patch</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#periksa">Periksa</a>
+        <a href="#riwayat">Riwayat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="beranda">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="tagline" aria-label="Feel the Change, See the Color">
+            <span class="tl-1">Feel the Change,</span>
+            <span class="tl-2"><span class="tl-blue">See the</span>
+              <span class="tl-color"><span style="--c:#F28CA5">C</span><span style="--c:#F4A36F">o</span><span style="--c:#F5C96B">l</span><span style="--c:#C9D67E">o</span><span style="--c:#A3C98B">r</span></span>
+            </span>
+          </p>
+          <h1>Pantau demam anak, ketahui langkah berikutnya.</h1>
+          <p class="lead">
+            Demam pada anak kadang terlihat sepele, tetapi bisa berkembang menjadi kejang demam bila terlambat ditangani.
+            Jawab beberapa pertanyaan berdasarkan warna patch TEMPA, lalu dapatkan penilaian, cara penanganan,
+            dan kontak dokter.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#periksa">Mulai pemeriksaan</a>
+            <a class="btn btn-ghost" href="#darurat">Tanda bahaya</a>
+          </div>
+        </div>
+
+        <aside class="scale-card" aria-labelledby="scale-title">
+          <h2 id="scale-title" class="eyebrow">Skala warna patch</h2>
+          <ol class="scale" id="scale-strip"><!-- diisi script.js dari CONFIG --></ol>
+          <p class="scale-note">Warna patch memberi perkiraan suhu kulit. Jika anak tampak sakit, ukur ulang dengan termometer.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Form pemeriksaan ===== -->
+    <section class="section" id="periksa" aria-labelledby="periksa-title">
+      <div class="wrap narrow">
+        <header class="section-head">
+          <h2 id="periksa-title">Pemeriksaan demam</h2>
+          <p>Tiga langkah singkat. Isi sesuai kondisi anak saat ini.</p>
+        </header>
+
+        <ol class="stepper" id="stepper" aria-label="Langkah pemeriksaan">
+          <li data-stepper="1"><span class="st-dot">1</span><span class="st-label">Data anak</span></li>
+          <li data-stepper="2"><span class="st-dot">2</span><span class="st-label">Kondisi demam</span></li>
+          <li data-stepper="3"><span class="st-dot">3</span><span class="st-label">Keluhan</span></li>
+        </ol>
+
+        <form id="form" class="card form-card" novalidate autocomplete="off">
+
+          <!-- Langkah 1 -->
+          <div class="step" data-step="1">
+            <div class="field">
+              <label for="nama">Nama anak</label>
+              <input id="nama" name="nama" type="text" maxlength="60" placeholder="Contoh: Alya Putri" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <span class="label" id="umur-label">Umur</span>
+              <div class="inline-pair" role="group" aria-labelledby="umur-label">
+                <div class="input-unit">
+                  <input id="umur-tahun" name="umur-tahun" type="number" inputmode="numeric" min="0" max="17" step="1" placeholder="0" aria-label="Umur dalam tahun">
+                  <span>tahun</span>
+                </div>
+                <div class="input-unit">
+                  <input id="umur-bulan" name="umur-bulan" type="number" inputmode="numeric" min="0" max="11" step="1" placeholder="0" aria-label="Umur dalam bulan">
+                  <span>bulan</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="berat">Berat badan</label>
+              <div class="input-unit">
+                <input id="berat" name="berat" type="number" inputmode="decimal" min="2" max="120" step="0.1" placeholder="Contoh: 14,5">
+                <span>kg</span>
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>Jenis kelamin</legend>
+              <div class="chips" id="chips-gender">
+                <label class="chip"><input type="radio" name="gender" value="Laki-laki"><span>Laki-laki</span></label>
+                <label class="chip"><input type="radio" name="gender" value="Perempuan"><span>Perempuan</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Langkah 2 -->
+          <div class="step" data-step="2" hidden>
+            <fieldset class="field">
+              <legend>Warna atau suhu yang terbaca saat ini</legend>
+              <div class="chips chips-temp" id="chips-temp"><!-- script.js --></div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Sudah berapa lama demam?</legend>
+              <div class="chips" id="chips-duration"><!-- script.js --></div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Pernah kejang saat demam sebelumnya?</legend>
+              <div class="chips" id="chips-seizure">
+                <label class="chip"><input type="radio" name="seizure" value="tidak"><span>Belum pernah</span></label>
+                <label class="chip"><input type="radio" name="seizure" value="ya"><span>Pernah</span></label>
+                <label class="chip"><input type="radio" name="seizure" value="tidak_tahu"><span>Tidak tahu</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Langkah 3 -->
+          <div class="step" data-step="3" hidden>
+            <p class="hint">Centang semua yang sedang dialami anak. Boleh dikosongkan bila tidak ada keluhan.</p>
+            <div id="symptom-groups"><!-- script.js --></div>
+          </div>
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost" id="btn-back" hidden>Kembali</button>
+            <button type="button" class="btn btn-primary" id="btn-next">Lanjut</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Hasil ===== -->
+    <section class="section section-result" id="hasil" aria-labelledby="hasil-title" hidden>
+      <div class="wrap narrow" id="hasil-body" tabindex="-1">
+        <!-- script.js -->
+      </div>
+    </section>
+
+    <!-- ===== Tanda bahaya & pertolongan kejang ===== -->
+    <section class="section section-soft" id="darurat" aria-labelledby="darurat-title">
+      <div class="wrap narrow">
+        <header class="section-head">
+          <h2 id="darurat-title">Kapan harus langsung ke IGD</h2>
+          <p>Bawa anak ke rumah sakit tanpa menunggu hasil pemeriksaan bila ada salah satu tanda berikut.</p>
+        </header>
+        <ul class="danger-list">
+          <li>Kejang, atau baru saja kejang</li>
+          <li>Sulit dibangunkan, tidak merespons, atau sangat lemas</li>
+          <li>Sesak atau napas cepat</li>
+          <li>Leher kaku, sakit kepala hebat</li>
+          <li>Bintik merah di kulit yang tidak hilang saat ditekan</li>
+          <li>Muntah terus-menerus atau berwarna hijau</li>
+          <li>Tidak mau minum, jarang buang air kecil</li>
+          <li>Bayi di bawah 3 bulan dengan demam</li>
+        </ul>
+
+        <details class="seizure card" id="seizure-guide">
+          <summary>Pertolongan pertama saat anak kejang</summary>
+          <ol class="plain-steps">
+            <li>Tetap tenang dan catat jam mulai kejang.</li>
+            <li>Baringkan anak di tempat datar, miringkan badannya agar air liur atau muntah dapat keluar.</li>
+            <li>Longgarkan pakaian di leher dan dada, jauhkan benda keras di sekitarnya.</li>
+            <li>Jangan masukkan apa pun ke mulut (sendok, jari, obat) dan jangan menahan gerakan kejang.</li>
+            <li>Jangan memberi makan atau minum sampai anak sadar penuh.</li>
+            <li>Hubungi 119 atau bawa ke IGD bila kejang lebih dari 5 menit, berulang, anak tidak sadar setelahnya, atau sulit bernapas.
+              Walaupun kejang sudah berhenti, anak tetap perlu diperiksa dokter, terutama pada kejang pertama.</li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== Riwayat ===== -->
+    <section class="section" id="riwayat" aria-labelledby="riwayat-title">
+      <div class="wrap narrow">
+        <header class="section-head section-head-row">
+          <div>
+            <h2 id="riwayat-title">Riwayat pemantauan</h2>
+            <p>Hasil pemeriksaan tersimpan di perangkat ini saja.</p>
+          </div>
+          <button type="button" class="btn btn-ghost btn-small" id="btn-clear-history" hidden>Hapus riwayat</button>
+        </header>
+        <ul class="history" id="history-list"></ul>
+        <p class="empty" id="history-empty">Belum ada pemeriksaan. Hasil pertama akan muncul di sini.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap narrow">
+      <p>TEMPA memberi informasi edukasi untuk membantu orang tua mengambil langkah awal. Informasi ini bukan diagnosis dan tidak menggantikan pemeriksaan dokter.
+        Dalam keadaan darurat, hubungi 119 atau langsung ke IGD terdekat.</p>
+      <p class="footer-tag">TEMPA, Temperature Indicator Patch</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
